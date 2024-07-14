@@ -1,6 +1,10 @@
 const express = require("express");
+const cors = require('cors');
+
 const app = express();
 const { BASE_URL, HOST, PORT } = require("./config");
+
+app.use(cors());
 
 const routes = require("./src/routes/router");
 

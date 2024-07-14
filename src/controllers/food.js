@@ -33,7 +33,9 @@ exports.findFoods = async (req, res) => {
       });
     }
 
-    res.send(foods);
+    const tmpFoods = foods.map((food) => ({...food, price: parseInt(food.price)}))
+
+    res.send(tmpFoods);
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: "Invalid finding Food", error });
